@@ -1,6 +1,6 @@
-import {Account, Avatars, Client, OAuthProvider} from "react-native-appwrite"
 import * as Linking from "expo-linking";
 import { openAuthSessionAsync } from "expo-web-browser";
+import { Account, Avatars, Client, OAuthProvider } from "react-native-appwrite";
 
 export const config = {
     platform: 'com.restate',
@@ -35,7 +35,8 @@ export async function login() {
         );
 
         
-        if (browserResult.type !== 'success') throw new Error ('Failed to login');
+        if (browserResult.type !== "success")
+            throw new Error("Create OAuth2 token failed");
 
         const url = new URL(browserResult.url);
 
@@ -67,20 +68,21 @@ export async function logout () {
     }
 }
 
-export async function getUser() {
+export async function getCurrentUser() {
     try {
-        const response = await account.get();
-
-        if(response.$id) {
-            const userAvatar = avatar.getInitials(response.name);
-
-            return {
-                ...response,
-                avatar: userAvatar.toString(),
-            }
-        }
-    } catch (erro) {
-        console.error(error);
-        return null;
+      const result = await account.get();
+      if (result.$id) {
+        const userAvatar = avatar.getInitials(result.name);
+  
+        return {
+          ...result,
+          avatar: userAvatar.toString(),
+        };
+      }
+  
+      return null;
+    } catch (error) {
+      console.log(error);
+      return null;
     }
 }
