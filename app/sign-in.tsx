@@ -7,6 +7,7 @@ import React from 'react';
 import { Alert, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 
+
 const SignIn = () => {
 
     const { refetch, loading, isLogged } = useGlobalContext;
