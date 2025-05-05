@@ -23,7 +23,7 @@ const SignIn = () => {
                 <Text className="text-3xl text-center uppercase font-rubik-bold text-black-300 mt-2">
                     Let's Get You Closer to {"\n"}
                     <Text className="text-primary-300">
-                    Your Ideal Home
+                        Your Ideal Home
                     </Text>
                 </Text>
                 <Text className="text-lg font-rubik text-black-200 text-center mt-12">
